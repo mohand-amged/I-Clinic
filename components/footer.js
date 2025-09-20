@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
 import { 
   Phone, 
   Mail, 
@@ -17,22 +18,24 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const quickLinks = [
-    { name: "الرئيسية", href: "#home" },
-    { name: "خدماتنا", href: "#services" },
-    { name: "عن الطبيب", href: "#doctor" },
-    { name: "احجز موعد", href: "#booking" },
+    { name: t("الرئيسية", "Home"), href: "#home" },
+    { name: t("خدماتنا", "Our Services"), href: "#services" },
+    { name: t("عن الطبيب", "About Doctor"), href: "#doctor" },
+    { name: t("احجز موعد", "Book Appointment"), href: "#booking" },
   ];
 
   const services = [
-    "فحص العيون الشامل",
-    "عمليات الليزك",
-    "علاج المياه البيضاء",
-    "طب عيون الأطفال"
+    t("فحص العيون الشامل", "Comprehensive Eye Exam"),
+    t("عمليات الليزك", "LASIK Surgery"),
+    t("علاج المياه البيضاء", "Cataract Treatment"),
+    t("طب عيون الأطفال", "Pediatric Ophthalmology")
   ];
 
   const socialLinks = [
@@ -86,26 +89,25 @@ export default function Footer() {
                   <Eye className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">عيادة العيون</h3>
-                  <p className="text-sm text-slate-400">Eye Care Clinic</p>
+                  <h3 className="text-xl font-bold">{t("عيادة العيون", "Eye Care Clinic")}</h3>
+                  <p className="text-sm text-slate-400">{t("عيادة متخصصة", "Specialized Clinic")}</p>
                 </div>
               </div>
 
               {/* Description */}
               <p className="text-slate-300 leading-relaxed">
-                عيادة متخصصة في طب وجراحة العيون مع أحدث التقنيات والمعدات الطبية 
-                لتقديم أفضل رعاية صحية لعينيك.
+                {t("عيادة متخصصة في طب وجراحة العيون مع أحدث التقنيات والمعدات الطبية لتقديم أفضل رعاية صحية لعينيك.", "A specialized clinic in ophthalmology and eye surgery with the latest technologies and medical equipment to provide the best healthcare for your eyes.")}
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className="text-center p-3 bg-white/5 rounded-lg">
                   <div className="text-2xl font-bold text-blue-400">5000+</div>
-                  <div className="text-xs text-slate-400">مريض راضي</div>
+                  <div className="text-xs text-slate-400">{t("مريض راضي", "Happy Patients")}</div>
                 </div>
                 <div className="text-center p-3 bg-white/5 rounded-lg">
                   <div className="text-2xl font-bold text-teal-400">15+</div>
-                  <div className="text-xs text-slate-400">سنة خبرة</div>
+                  <div className="text-xs text-slate-400">{t("سنة خبرة", "Years Experience")}</div>
                 </div>
               </div>
             </motion.div>
@@ -119,7 +121,7 @@ export default function Footer() {
             >
               <h4 className="text-lg font-bold mb-6 flex items-center gap-2">
                 <div className="w-2 h-6 bg-gradient-to-b from-blue-500 to-teal-500 rounded-full"></div>
-                روابط سريعة
+                {t("روابط سريعة", "Quick Links")}
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
@@ -145,7 +147,7 @@ export default function Footer() {
             >
               <h4 className="text-lg font-bold mb-6 flex items-center gap-2">
                 <div className="w-2 h-6 bg-gradient-to-b from-blue-500 to-teal-500 rounded-full"></div>
-                خدماتنا
+                {t("خدماتنا", "Our Services")}
               </h4>
               <ul className="space-y-3">
                 {services.map((service, index) => (
@@ -166,7 +168,7 @@ export default function Footer() {
             >
               <h4 className="text-lg font-bold mb-6 flex items-center gap-2">
                 <div className="w-2 h-6 bg-gradient-to-b from-blue-500 to-teal-500 rounded-full"></div>
-                معلومات التواصل
+                {t("معلومات التواصل", "Contact Information")}
               </h4>
               
               <div className="space-y-4">
@@ -176,7 +178,7 @@ export default function Footer() {
                     <Phone className="w-4 h-4 text-blue-400" />
                   </div>
                   <div>
-                    <p className="font-medium">اتصل بنا</p>
+                    <p className="font-medium">{t("اتصل بنا", "Call Us")}</p>
                     <a href="tel:+201234567890" className="text-slate-300 hover:text-white transition-colors">
                       01234567890
                     </a>
@@ -189,7 +191,7 @@ export default function Footer() {
                     <Mail className="w-4 h-4 text-teal-400" />
                   </div>
                   <div>
-                    <p className="font-medium">البريد الإلكتروني</p>
+                    <p className="font-medium">{t("البريد الإلكتروني", "Email")}</p>
                     <a href="mailto:info@eyeclinic.com" className="text-slate-300 hover:text-white transition-colors">
                       info@eyeclinic.com
                     </a>
@@ -202,10 +204,10 @@ export default function Footer() {
                     <MapPin className="w-4 h-4 text-indigo-400" />
                   </div>
                   <div>
-                    <p className="font-medium">العنوان</p>
+                    <p className="font-medium">{t("العنوان", "Address")}</p>
                     <p className="text-slate-300 text-sm leading-relaxed">
-                      123 شارع النيل<br />
-                      القاهرة، مصر
+                      {t("123 شارع النيل", "123 Nile Street")}<br />
+                      {t("القاهرة، مصر", "Cairo, Egypt")}
                     </p>
                   </div>
                 </div>
@@ -216,10 +218,10 @@ export default function Footer() {
                     <Clock className="w-4 h-4 text-green-400" />
                   </div>
                   <div>
-                    <p className="font-medium">مواعيد العمل</p>
+                    <p className="font-medium">{t("مواعيد العمل", "Working Hours")}</p>
                     <div className="text-slate-300 text-sm">
-                      <p>سبت - خميس: 9ص - 6م</p>
-                      <p>الجمعة: 2م - 6م</p>
+                      <p>{t("سبت - خميس: 9ص - 6م", "Sat - Thu: 9am - 6pm")}</p>
+                      <p>{t("الجمعة: 2م - 6م", "Friday: 2pm - 6pm")}</p>
                     </div>
                   </div>
                 </div>
@@ -239,7 +241,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Social Links */}
             <div className="flex items-center gap-4">
-              <span className="text-slate-400 text-sm">تابعنا على:</span>
+              <span className="text-slate-400 text-sm">{t("تابعنا على:", "Follow us on:")}</span>
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
@@ -261,7 +263,7 @@ export default function Footer() {
               size="lg"
             >
               <Phone className="w-4 h-4 mr-2" />
-              طوارئ 24/7
+              {t("طوارئ 24/7", "Emergency 24/7")}
             </Button>
           </div>
         </motion.div>
@@ -270,15 +272,15 @@ export default function Footer() {
         <div className="border-t border-slate-800 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
             <p className="flex items-center gap-2">
-              © 2024 عيادة العيون. جميع الحقوق محفوظة
+              {t("© 2024 عيادة العيون. جميع الحقوق محفوظة", "© 2024 Eye Care Clinic. All rights reserved")}
               <Heart className="w-4 h-4 text-red-500" />
             </p>
             <div className="flex items-center gap-6">
               <a href="#privacy" className="hover:text-white transition-colors">
-                سياسة الخصوصية
+                {t("سياسة الخصوصية", "Privacy Policy")}
               </a>
               <a href="#terms" className="hover:text-white transition-colors">
-                شروط الاستخدام
+                {t("شروط الاستخدام", "Terms of Use")}
               </a>
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/language-context";
 import { 
   Settings, 
   UserCheck, 
@@ -14,46 +15,48 @@ import {
 } from "lucide-react";
 
 export default function WhyChooseUsSection() {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: Settings,
-      title: "أحدث المعدات",
-      subtitle: "Latest Equipment",
-      description: "نستخدم أحدث الأجهزة الطبية والتقنيات المتطورة في فحص وعلاج العيون",
-      stats: "99% دقة التشخيص",
+      title: t("أحدث المعدات", "Latest Equipment"),
+      subtitle: t("أحدث التقنيات", "Advanced Technology"),
+      description: t("نستخدم أحدث الأجهزة الطبية والتقنيات المتطورة في فحص وعلاج العيون", "We use the latest medical equipment and advanced technologies for eye examination and treatment"),
+      stats: t("99% دقة التشخيص", "99% Diagnostic Accuracy"),
       color: "blue"
     },
     {
       icon: UserCheck,
-      title: "أطباء خبراء",
-      subtitle: "Expert Doctors",
-      description: "فريق من أطباء العيون المتخصصين مع خبرة تزيد عن 10 سنوات",
-      stats: "+15 سنة خبرة",
+      title: t("أطباء خبراء", "Expert Doctors"),
+      subtitle: t("خبراء متخصصون", "Specialized Experts"),
+      description: t("فريق من أطباء العيون المتخصصين مع خبرة تزيد عن 10 سنوات", "Team of specialized ophthalmologists with over 10 years of experience"),
+      stats: t("+15 سنة خبرة", "+15 Years Experience"),
       color: "teal"
     },
     {
       icon: CreditCard,
-      title: "أسعار مناسبة",
-      subtitle: "Affordable Prices",
-      description: "نقدم أفضل خدمات العيون بأسعار مناسبة مع إمكانية التقسيط",
-      stats: "خصم 20% للطلاب",
+      title: t("أسعار مناسبة", "Affordable Prices"),
+      subtitle: t("أسعار تنافسية", "Competitive Rates"),
+      description: t("نقدم أفضل خدمات العيون بأسعار مناسبة مع إمكانية التقسيط", "We provide the best eye care services at affordable prices with installment options"),
+      stats: t("خصم 20% للطلاب", "20% Student Discount"),
       color: "green"
     },
     {
       icon: Clock,
-      title: "خدمة سريعة",
-      subtitle: "Fast Service",
-      description: "مواعيد سريعة وخدمة فورية مع أوقات انتظار قصيرة",
-      stats: "أقل من 15 دقيقة انتظار",
+      title: t("خدمة سريعة", "Fast Service"),
+      subtitle: t("خدمة فورية", "Immediate Service"),
+      description: t("مواعيد سريعة وخدمة فورية مع أوقات انتظار قصيرة", "Quick appointments and immediate service with short waiting times"),
+      stats: t("أقل من 15 دقيقة انتظار", "Less than 15 min wait"),
       color: "indigo"
     }
   ];
 
   const achievements = [
-    { icon: Users, number: "5000+", label: "مريض راضي" },
-    { icon: Award, number: "15+", label: "سنة خبرة" },
-    { icon: Star, number: "4.9", label: "تقييم العملاء" },
-    { icon: Shield, number: "100%", label: "ضمان الجودة" }
+    { icon: Users, number: "5000+", label: t("مريض راضي", "Happy Patients") },
+    { icon: Award, number: "15+", label: t("سنة خبرة", "Years Experience") },
+    { icon: Star, number: "4.9", label: t("تقييم العملاء", "Customer Rating") },
+    { icon: Shield, number: "100%", label: t("ضمان الجودة", "Quality Guarantee") }
   ];
 
   const getColorClasses = (color) => {
@@ -98,10 +101,10 @@ export default function WhyChooseUsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            لماذا تختار عيادتنا؟
+            {t("لماذا تختار عيادتنا؟", "Why Choose Our Clinic?")}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-            Why Choose Our Clinic?
+            {t("اكتشف ما يميزنا عن الآخرين", "Discover what makes us different from others")}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </motion.div>
@@ -151,10 +154,10 @@ export default function WhyChooseUsSection() {
           <div className="bg-gradient-to-r from-blue-600 to-teal-600 rounded-3xl p-8 text-white">
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                إنجازاتنا تتحدث عنا
+                {t("إنجازاتنا تتحدث عنا", "Our Achievements Speak for Us")}
               </h3>
               <p className="text-xl opacity-90">
-                Our achievements speak for themselves
+                {t("أرقام تعبر عن جودتنا", "Numbers that reflect our quality")}
               </p>
             </div>
             
@@ -202,10 +205,10 @@ export default function WhyChooseUsSection() {
               <Shield className="w-10 h-10 text-blue-600" />
             </div>
             <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              ضمان الجودة
+              {t("ضمان الجودة", "Quality Guarantee")}
             </h4>
             <p className="text-slate-600 dark:text-slate-400 text-sm">
-              نضمن جودة الخدمة مع إمكانية استرداد الأموال في حالة عدم الرضا
+              {t("نضمن جودة الخدمة مع إمكانية استرداد الأموال في حالة عدم الرضا", "We guarantee service quality with money-back option in case of dissatisfaction")}
             </p>
           </div>
 
@@ -214,10 +217,10 @@ export default function WhyChooseUsSection() {
               <Clock className="w-10 h-10 text-teal-600" />
             </div>
             <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              خدمة 24/7
+              {t("خدمة 24/7", "24/7 Service")}
             </h4>
             <p className="text-slate-600 dark:text-slate-400 text-sm">
-              خدمة عملاء متاحة على مدار الساعة للرد على استفساراتكم
+              {t("خدمة عملاء متاحة على مدار الساعة للرد على استفساراتكم", "Customer service available 24/7 to answer your inquiries")}
             </p>
           </div>
 
@@ -226,10 +229,10 @@ export default function WhyChooseUsSection() {
               <Award className="w-10 h-10 text-green-600" />
             </div>
             <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              اعتماد دولي
+              {t("اعتماد دولي", "International Accreditation")}
             </h4>
             <p className="text-slate-600 dark:text-slate-400 text-sm">
-              عيادتنا معتمدة من الهيئات الطبية المحلية والدولية
+              {t("عيادتنا معتمدة من الهيئات الطبية المحلية والدولية", "Our clinic is accredited by local and international medical bodies")}
             </p>
           </div>
         </motion.div>

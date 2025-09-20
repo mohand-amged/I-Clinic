@@ -4,76 +4,66 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function TestimonialsSection() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
-      name: "أحمد محمد",
-      nameEn: "Ahmed Mohamed",
-      age: "32 سنة",
-      location: "القاهرة",
-      service: "عملية الليزك",
+      name: t("أحمد محمد", "Ahmed Mohamed"),
+      age: t("32 سنة", "32 years"),
+      location: t("القاهرة", "Cairo"),
+      service: t("عملية الليزك", "LASIK Surgery"),
       rating: 5,
-      text: "رؤيتي رجعت واضحة بعد الليزك والدكتور كان محترف جداً. العملية كانت سريعة ومريحة ولم أشعر بأي ألم. أنصح بشدة بالعيادة",
-      textEn: "My vision became clear after LASIK and the doctor was very professional. The operation was quick and comfortable.",
+      text: t("رؤيتي رجعت واضحة بعد الليزك والدكتور كان محترف جداً. اصعملية كانت سريعة ومريحة ولم أشعر بأي ألم. أنصح بشدة بالعيادة", "My vision became clear after LASIK and the doctor was very professional. The operation was quick and comfortable and I didn't feel any pain. I highly recommend the clinic"),
       image: "👨‍💼"
     },
     {
-      name: "فاطمة أحمد",
-      nameEn: "Fatima Ahmed",
-      age: "45 سنة",
-      location: "الجيزة",
-      service: "علاج المياه البيضاء",
+      name: t("فاطمة أحمد", "Fatima Ahmed"),
+      age: t("45 سنة", "45 years"),
+      location: t("الجيزة", "Giza"),
+      service: t("علاج المياه البيضاء", "Cataract Treatment"),
       rating: 5,
-      text: "عملية المياه البيضاء تمت بنجاح تام والطاقم الطبي كان متعاون جداً. الأسعار مناسبة والخدمة ممتازة",
-      textEn: "Cataract surgery was completely successful and the medical staff was very cooperative.",
+      text: t("عملية المياه البيضاء تمت بنجاح تام والطاقم الطبي كان متعاون جداً. الأسعار مناسبة والخدمة ممتازة", "Cataract surgery was completely successful and the medical staff was very cooperative. The prices are reasonable and the service is excellent"),
       image: "👩‍💼"
     },
     {
-      name: "محمود سعد",
-      nameEn: "Mahmoud Saad",
-      age: "28 سنة",
-      location: "الإسكندرية",
-      service: "فحص العيون الشامل",
+      name: t("محمود سعد", "Mahmoud Saad"),
+      age: t("28 سنة", "28 years"),
+      location: t("الإسكندرية", "Alexandria"),
+      service: t("فحص العيون الشامل", "Comprehensive Eye Exam"),
       rating: 5,
-      text: "فحص دقيق ومفصل بأحدث الأجهزة. الدكتور شرح لي كل شيء بطريقة واضحة وأعطاني نصائح مفيدة جداً",
-      textEn: "Accurate and detailed examination with the latest equipment. Very helpful advice.",
+      text: t("فحص دقيق ومفصل بأحدث الأجهزة. الدكتور شرح لي كل شيء بطريقة واضحة وأعطاني نصائح مفيدة جداً", "Accurate and detailed examination with the latest equipment. The doctor explained everything clearly and gave me very helpful advice"),
       image: "👨‍⚕️"
     },
     {
-      name: "سارة عبدالله",
-      nameEn: "Sara Abdullah",
-      age: "35 سنة",
-      location: "القاهرة",
-      service: "علاج جفاف العين",
+      name: t("سارة عبدالله", "Sara Abdullah"),
+      age: t("35 سنة", "35 years"),
+      location: t("القاهرة", "Cairo"),
+      service: t("علاج جفاف العين", "Dry Eye Treatment"),
       rating: 5,
-      text: "كنت أعاني من جفاف العين الشديد والعلاج كان فعال جداً. الآن أشعر بالراحة والعيون لا تؤلمني",
-      textEn: "I suffered from severe dry eyes and the treatment was very effective. Now I feel comfortable.",
+      text: t("كنت أعاني من جفاف العين الشديد والعلاج كان فعال جداً. الآن أشعر بالراحة والعيون لا تؤلمني", "I suffered from severe dry eyes and the treatment was very effective. Now I feel comfortable and my eyes don't hurt"),
       image: "👩‍🔬"
     },
     {
-      name: "علي حسن",
-      nameEn: "Ali Hassan",
-      age: "50 سنة",
-      location: "المنصورة",
-      service: "فحص شبكية العين",
+      name: t("علي حسن", "Ali Hassan"),
+      age: t("50 سنة", "50 years"),
+      location: t("المنصورة", "Mansoura"),
+      service: t("فحص شبكية العين", "Retinal Examination"),
       rating: 5,
-      text: "اكتشف الدكتور مشكلة في الشبكية مبكراً وتم العلاج بنجاح. أشكر الفريق الطبي على الاهتمام والمتابعة",
-      textEn: "The doctor discovered a retina problem early and treatment was successful. Thank you for the care.",
-      image: "👨‍🏫"
+      text: t("اكتشف الدكتور مشكلة في الشبكية مبكراً وتم العلاج بنجاح. أشكر الفريق الطبي على الاهتمام والمتابعة", "The doctor discovered a retina problem early and treatment was successful. I thank the medical team for their attention and follow-up"),
+      image: "👨‍🎓"
     },
     {
-      name: "منى إبراهيم",
-      nameEn: "Mona Ibrahim",
-      age: "40 سنة",
-      location: "طنطا",
-      service: "عملية المياه الزرقاء",
+      name: t("منى إبراهيم", "Mona Ibrahim"),
+      age: t("40 سنة", "40 years"),
+      location: t("طنطا", "Tanta"),
+      service: t("عملية المياه الزرقاء", "Glaucoma Surgery"),
       rating: 5,
-      text: "عملية المياه الزرقاء تمت بأمان تام والمتابعة ممتازة. أنصح جميع من يعاني من نفس المشكلة",
-      textEn: "Glaucoma surgery was completely safe and follow-up was excellent. Highly recommended.",
-      image: "👩‍🏫"
+      text: t("عملية المياه الزرقاء تمت بأمان تام والمتابعة ممتازة. أنصح جميع من يعاني من نفس المشكلة", "Glaucoma surgery was completely safe and follow-up was excellent. I recommend it to everyone who suffers from the same problem"),
+      image: "👩‍🎓"
     }
   ];
 
@@ -106,10 +96,10 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            ماذا يقول مرضانا
+            {t("ماذا يقول مرضانا", "What Our Patients Say")}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-            What Our Patients Say
+            {t("آراء وتجارب حقيقية من مرضانا", "Real opinions and experiences from our patients")}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </motion.div>
@@ -201,7 +191,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-2xl font-bold text-center text-slate-900 dark:text-white mb-8">
-            تقييمات أخرى من مرضانا
+            {t("تقييمات أخرى من مرضانا", "More Reviews from Our Patients")}
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
@@ -249,10 +239,10 @@ export default function TestimonialsSection() {
         >
           <div className="bg-gradient-to-r from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-              انضم لآلاف المرضى الراضين
+              {t("انضم لآلاف المرضى الراضين", "Join Thousands of Satisfied Patients")}
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-              اكتب تجربتك وشارك قصة نجاحك معنا
+              {t("اكتب تجربتك وشارك قصة نجاحك معنا", "Write your experience and share your success story with us")}
             </p>
             <div className="flex justify-center">
               {renderStars(5)}

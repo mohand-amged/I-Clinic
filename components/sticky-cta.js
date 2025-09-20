@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, Calendar, X } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function StickyCTA() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -27,21 +29,21 @@ export default function StickyCTA() {
   const ctaOptions = [
     {
       icon: Phone,
-      label: "اتصال مباشر",
+      label: t("اتصال مباشر", "Direct Call"),
       action: () => window.open("tel:+201234567890", "_self"),
       color: "bg-blue-600 hover:bg-blue-700",
       textColor: "text-blue-600"
     },
     {
       icon: MessageCircle,
-      label: "واتساب",
-      action: () => window.open("https://wa.me/201234567890?text=مرحباً، أريد حجز موعد", "_blank"),
+      label: t("واتساب", "WhatsApp"),
+      action: () => window.open(`https://wa.me/201234567890?text=${encodeURIComponent(t("مرحباً، أريد حجز موعد", "Hello, I want to book an appointment"))}`, "_blank"),
       color: "bg-green-600 hover:bg-green-700",
       textColor: "text-green-600"
     },
     {
       icon: Calendar,
-      label: "احجز موعد",
+      label: t("احجز موعد", "Book Appointment"),
       action: () => {
         const bookingSection = document.getElementById("booking");
         if (bookingSection) {
@@ -76,7 +78,7 @@ export default function StickyCTA() {
                 >
                   <div className="p-4">
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 text-center">
-                      كيف تريد التواصل؟
+                      {t("كيف تريد التواصل؟", "How do you want to contact us?")}
                     </h3>
                     <div className="space-y-3 min-w-[200px]">
                       {ctaOptions.map((option, index) => (
@@ -163,7 +165,7 @@ export default function StickyCTA() {
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
               >
-                تواصل معنا الآن
+                {t("تواصل معنا الآن", "Contact us now")}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
               </motion.div>
             )}

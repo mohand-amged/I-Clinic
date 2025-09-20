@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
 import { 
   Award, 
   BookOpen, 
@@ -17,73 +18,73 @@ import {
 } from "lucide-react";
 
 export default function DoctorSection() {
+  const { t } = useLanguage();
+  
   const mainDoctor = {
-    name: "د. أحمد محمد الشريف",
-    nameEn: "Dr. Ahmed Mohamed El-Sharif",
-    title: "استشاري طب وجراحة العيون",
-    titleEn: "Consultant Ophthalmologist & Eye Surgeon",
+    name: t("د. أحمد محمد الشريف", "Dr. Ahmed Mohamed El-Sharif"),
+    title: t("استشاري طب وجراحة العيون", "Consultant Ophthalmologist & Eye Surgeon"),
     image: "👨‍⚕️",
-    experience: "15+ سنة خبرة",
-    patients: "5000+ مريض",
+    experience: t("15+ سنة خبرة", "15+ years experience"),
+    patients: t("5000+ مريض", "5000+ patients"),
     rating: 4.9,
-    location: "القاهرة، مصر",
+    location: t("القاهرة، مصر", "Cairo, Egypt"),
     
     qualifications: [
-      "بكالوريوس الطب والجراحة - جامعة القاهرة",
-      "ماجستير طب وجراحة العيون - جامعة عين شمس",
-      "دكتوراة في طب العيون - جامعة القاهرة",
-      "زمالة الكلية الملكية للجراحين - لندن"
+      t("بكالوريوس الطب والجراحة - جامعة القاهرة", "MBBS - Cairo University"),
+      t("ماجستير طب وجراحة العيون - جامعة عين شمس", "Master in Ophthalmology - Ain Shams University"),
+      t("دكتوراة في طب العيون - جامعة القاهرة", "PhD in Ophthalmology - Cairo University"),
+      t("زمالة الكلية الملكية للجراحين - لندن", "Fellowship of the Royal College of Surgeons - London")
     ],
     
     specializations: [
       {
         icon: Award,
-        title: "جراحة الليزك المتطورة",
-        description: "خبرة في أحدث تقنيات تصحيح النظر بالليزر"
+        title: t("جراحة الليزك المتطورة", "Advanced LASIK Surgery"),
+        description: t("خبرة في أحدث تقنيات تصحيح النظر بالليزر", "Expertise in the latest laser vision correction techniques")
       },
       {
         icon: Stethoscope,
-        title: "جراحة المياه البيضاء",
-        description: "إجراء أكثر من 2000 عملية ناجحة"
+        title: t("جراحة المياه البيضاء", "Cataract Surgery"),
+        description: t("إجراء أكثر من 2000 عملية ناجحة", "Performed over 2000 successful surgeries")
       },
       {
         icon: BookOpen,
-        title: "أمراض الشبكية",
-        description: "تشخيص وعلاج أمراض الشبكية المعقدة"
+        title: t("أمراض الشبكية", "Retinal Diseases"),
+        description: t("تشخيص وعلاج أمراض الشبكية المعقدة", "Diagnosis and treatment of complex retinal diseases")
       },
       {
         icon: Users,
-        title: "طب عيون الأطفال",
-        description: "رعاية متخصصة لعيون الأطفال والرضع"
+        title: t("طب عيون الأطفال", "Pediatric Ophthalmology"),
+        description: t("رعاية متخصصة لعيون الأطفال والرضع", "Specialized care for children's and infants' eyes")
       }
     ],
     
     achievements: [
-      "عضو الجمعية المصرية لطب وجراحة العيون",
-      "عضو الأكاديمية الأمريكية لطب العيون",
-      "حاصل على جائزة أفضل طبيب عيون في القاهرة 2023",
-      "مؤلف 15 بحث علمي في مجال طب العيون"
+      t("عضو الجمعية المصرية لطب وجراحة العيون", "Member of Egyptian Society of Ophthalmology"),
+      t("عضو الأكاديمية الأمريكية لطب العيون", "Member of American Academy of Ophthalmology"),
+      t("حاصل على جائزة أفضل طبيب عيون في القاهرة 2023", "Best Ophthalmologist in Cairo Award 2023"),
+      t("مؤلف 15 بحث علمي في مجال طب العيون", "Author of 15 scientific papers in ophthalmology")
     ]
   };
 
   const teamMembers = [
     {
-      name: "د. فاطمة أحمد",
-      title: "أخصائي طب عيون الأطفال",
+      name: t("د. فاطمة أحمد", "Dr. Fatima Ahmed"),
+      title: t("أخصائي طب عيون الأطفال", "Pediatric Ophthalmology Specialist"),
       image: "👩‍⚕️",
-      experience: "8 سنوات خبرة"
+      experience: t("8 سنوات خبرة", "8 years experience")
     },
     {
-      name: "د. محمد علي",
-      title: "أخصائي جراحة الشبكية",
+      name: t("د. محمد علي", "Dr. Mohamed Ali"),
+      title: t("أخصائي جراحة الشبكية", "Retinal Surgery Specialist"),
       image: "👨‍⚕️",
-      experience: "10 سنوات خبرة"
+      experience: t("10 سنوات خبرة", "10 years experience")
     },
     {
-      name: "أ. سارة محمود",
-      title: "أخصائي فحص النظر",
+      name: t("أ. سارة محمود", "Ms. Sara Mahmoud"),
+      title: t("أخصائي فحص النظر", "Vision Testing Specialist"),
       image: "👩‍💼",
-      experience: "5 سنوات خبرة"
+      experience: t("5 سنوات خبرة", "5 years experience")
     }
   ];
 
@@ -99,10 +100,10 @@ export default function DoctorSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            فريقنا الطبي المتخصص
+            {t("فريقنا الطبي المتخصص", "Our Specialized Medical Team")}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-            Our Specialized Medical Team
+            {t("أطباء متخصصون في طب وجراحة العيون", "Doctors specialized in ophthalmology and eye surgery")}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </motion.div>
@@ -146,18 +147,18 @@ export default function DoctorSection() {
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="text-center p-3 bg-white dark:bg-slate-800 rounded-xl">
                     <div className="text-2xl font-bold text-blue-600">{mainDoctor.experience.split(' ')[0]}</div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">سنة خبرة</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400">{t("سنة خبرة", "Years")}</div>
                   </div>
                   <div className="text-center p-3 bg-white dark:bg-slate-800 rounded-xl">
                     <div className="text-2xl font-bold text-teal-600">{mainDoctor.patients.split(' ')[0]}</div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">مريض</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400">{t("مريض", "Patients")}</div>
                   </div>
                   <div className="text-center p-3 bg-white dark:bg-slate-800 rounded-xl">
                     <div className="text-2xl font-bold text-yellow-500 flex items-center justify-center gap-1">
                       <Star className="w-5 h-5 fill-current" />
                       {mainDoctor.rating}
                     </div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">تقييم</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400">{t("تقييم", "Rating")}</div>
                   </div>
                 </div>
 
@@ -165,11 +166,11 @@ export default function DoctorSection() {
                 <div className="flex justify-center lg:justify-start space-x-4 rtl:space-x-reverse">
                   <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
                     <Phone className="w-4 h-4 mr-2" />
-                    اتصال
+                    {t("اتصال", "Call")}
                   </Button>
                   <Button size="sm" variant="outline">
                     <Calendar className="w-4 h-4 mr-2" />
-                    احجز موعد
+                    {t("احجز موعد", "Book Appointment")}
                   </Button>
                 </div>
               </div>
@@ -180,7 +181,7 @@ export default function DoctorSection() {
                 <div>
                   <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                     <GraduationCap className="w-5 h-5 text-blue-600" />
-                    المؤهلات العلمية
+                    {t("المؤهلات العلمية", "Academic Qualifications")}
                   </h4>
                   <ul className="space-y-2">
                     {mainDoctor.qualifications.map((qualification, index) => (
@@ -203,7 +204,7 @@ export default function DoctorSection() {
                 <div>
                   <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                     <Stethoscope className="w-5 h-5 text-teal-600" />
-                    التخصصات
+                    {t("التخصصات", "Specializations")}
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {mainDoctor.specializations.map((spec, index) => (
@@ -235,7 +236,7 @@ export default function DoctorSection() {
                 <div>
                   <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                     <Award className="w-5 h-5 text-yellow-500" />
-                    الجوائز والإنجازات
+                    {t("الجوائز والإنجازات", "Awards & Achievements")}
                   </h4>
                   <ul className="space-y-2">
                     {mainDoctor.achievements.slice(0, 3).map((achievement, index) => (
@@ -266,7 +267,7 @@ export default function DoctorSection() {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
-            باقي أعضاء الفريق الطبي
+            {t("باقي أعضاء الفريق الطبي", "Other Medical Team Members")}
           </h3>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -311,10 +312,10 @@ export default function DoctorSection() {
         >
           <div className="bg-gradient-to-r from-blue-600 to-teal-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              احجز استشارة مع فريقنا الطبي المتخصص
+              {t("احجز استشارة مع فريقنا الطبي المتخصص", "Book a Consultation with Our Specialized Medical Team")}
             </h3>
             <p className="text-xl mb-6 opacity-90">
-              اختر الطبيب المناسب واحجز موعدك بسهولة
+              {t("اختر الطبيب المناسب واحجز موعدك بسهولة", "Choose the right doctor and book your appointment easily")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -323,7 +324,7 @@ export default function DoctorSection() {
                 className="bg-white text-blue-600 border-white hover:bg-blue-50"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                احجز موعد
+                {t("احجز موعد", "Book Appointment")}
               </Button>
               <Button 
                 size="lg"
@@ -331,7 +332,7 @@ export default function DoctorSection() {
                 className="border-white text-white hover:bg-white/10"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                اتصل بنا
+                {t("اتصل بنا", "Contact Us")}
               </Button>
             </div>
           </div>
