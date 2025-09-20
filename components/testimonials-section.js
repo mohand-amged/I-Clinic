@@ -152,7 +152,7 @@ export default function TestimonialsSection() {
 
                   {/* Testimonial Text */}
                   <blockquote className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
-                    "{testimonials[currentIndex].text}"
+                    &ldquo;{testimonials[currentIndex].text}&rdquo;
                   </blockquote>
 
                   {/* Patient Info */}
@@ -218,7 +218,7 @@ export default function TestimonialsSection() {
                     {renderStars(testimonial.rating)}
                   </div>
                   <p className="text-slate-600 dark:text-slate-300 mb-4 text-sm leading-relaxed line-clamp-4">
-                    "{testimonial.text}"
+                    &ldquo;{testimonial.text}&rdquo;
                   </p>
                   <div className="flex items-center space-x-3 rtl:space-x-reverse mt-auto">
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full flex items-center justify-center text-sm">

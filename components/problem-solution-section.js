@@ -10,36 +10,36 @@ export default function ProblemSolutionSection() {
   const problems = [
     {
       icon: Eye,
-      title: "رؤية ضبابية",
-      subtitle: "Blurred Vision",
-      description: "صعوبة في الرؤية الواضحة للأشياء القريبة أو البعيدة",
+      title: t("رؤية ضبابية", "Blurred Vision"),
+      subtitle: t("رؤية غير واضحة", "Unclear Sight"),
+      description: t("صعوبة في الرؤية الواضحة للأشياء القريبة أو البعيدة", "Difficulty in clear vision for near or distant objects"),
     },
     {
       icon: Glasses,
-      title: "مشاكل النظارات",
-      subtitle: "Glasses Issues",
-      description: "الحاجة المستمرة لتغيير النظارات أو العدسات",
+      title: t("مشاكل النظارات", "Glasses Issues"),
+      subtitle: t("مشاكل العدسات", "Lens Problems"),
+      description: t("الحاجة المستمرة لتغيير النظارات أو العدسات", "Continuous need to change glasses or contact lenses"),
     },
     {
       icon: Monitor,
-      title: "إجهاد العين",
-      subtitle: "Eye Strain",
-      description: "تعب العين من الاستخدام المطول للشاشات",
+      title: t("إجهاد العين", "Eye Strain"),
+      subtitle: t("تعب العيون", "Eye Fatigue"),
+      description: t("تعب العين من الاستخدام المطول للشاشات", "Eye fatigue from prolonged screen usage"),
     },
   ];
 
   const solutions = [
     {
-      title: "فحص شامل للعين",
-      description: "فحص دقيق باستخدام أحدث الأجهزة التشخيصية",
+      title: t("فحص شامل للعين", "Comprehensive Eye Examination"),
+      description: t("فحص دقيق باستخدام أحدث الأجهزة التشخيصية", "Precise examination using the latest diagnostic equipment"),
     },
     {
-      title: "عمليات الليزك المتطورة",
-      description: "تقنيات حديثة لتصحيح النظر بدون نظارات",
+      title: t("عمليات الليزك المتطورة", "Advanced LASIK Surgery"),
+      description: t("تقنيات حديثة لتصحيح النظر بدون نظارات", "Modern techniques for vision correction without glasses"),
     },
     {
-      title: "علاج متخصص",
-      description: "خطط علاجية مخصصة لكل حالة",
+      title: t("علاج متخصص", "Specialized Treatment"),
+      description: t("خطط علاجية مخصصة لكل حالة", "Customized treatment plans for each case"),
     },
   ];
 
@@ -71,10 +71,10 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center space-x-4 rtl:space-x-reverse bg-red-50 dark:bg-red-900/20 px-6 py-3 rounded-full">
+            <div className={`flex items-center ${isRTL ? 'space-x-4 rtl:space-x-reverse' : 'space-x-4'} bg-red-50 dark:bg-red-900/20 px-6 py-3 rounded-full`}>
               <AlertTriangle className="w-6 h-6 text-red-500" />
               <h3 className="text-xl font-semibold text-red-600 dark:text-red-400">
-                المشاكل الشائعة
+                {t("المشاكل الشائعة", "Common Problems")}
               </h3>
             </div>
           </div>
@@ -146,10 +146,10 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center space-x-4 rtl:space-x-reverse bg-green-50 dark:bg-green-900/20 px-6 py-3 rounded-full">
+            <div className={`flex items-center ${isRTL ? 'space-x-4 rtl:space-x-reverse' : 'space-x-4'} bg-green-50 dark:bg-green-900/20 px-6 py-3 rounded-full`}>
               <CheckCircle className="w-6 h-6 text-green-500" />
               <h3 className="text-xl font-semibold text-green-600 dark:text-green-400">
-                الحلول المتطورة
+                {t("الحلول المتطورة", "Advanced Solutions")}
               </h3>
             </div>
           </div>
@@ -163,10 +163,10 @@ export default function ProblemSolutionSection() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                عيادتنا مجهزة بأحدث تقنيات فحص وعلاج العيون
+                {t("عيادتنا مجهزة بأحدث تقنيات فحص وعلاج العيون", "Our clinic is equipped with the latest eye examination and treatment technologies")}
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400">
-                Our clinic is equipped with the latest eye examination and treatment technologies
+                {t("نوفر رعاية متقدمة وشاملة لعينيك", "We provide advanced and comprehensive care for your eyes")}
               </p>
             </motion.div>
 
@@ -207,10 +207,10 @@ export default function ProblemSolutionSection() {
         >
           <div className="bg-gradient-to-r from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-              لا تنتظر أكثر - احجز استشارتك اليوم
+              {t("لا تنتظر أكثر - احجز استشارتك اليوم", "Don't wait any longer - Book your consultation today")}
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              Don&apos;t wait any longer - Book your consultation today
+              {t("احصل على الرعاية التي تستحقها عيناك", "Get the care your eyes deserve")}
             </p>
           </div>
         </motion.div>

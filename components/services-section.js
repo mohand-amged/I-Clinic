@@ -13,67 +13,81 @@ import {
   Clock,
   Shield
 } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function ServicesSection() {
+  const { t, isRTL } = useLanguage();
   const services = [
     {
       icon: Eye,
-      title: "فحص العيون الشامل",
-      subtitle: "Comprehensive Eye Exam",
-      description: "فحص دقيق ومتكامل للعين باستخدام أحدث الأجهزة التشخيصية المتطورة",
+      title: t("فحص العيون الشامل", "Comprehensive Eye Exam"),
+      subtitle: t("فحص شامل للعين", "Complete Eye Examination"),
+      description: t(
+        "فحص دقيق ومتكامل للعين باستخدام أحدث الأجهزة التشخيصية المتطورة",
+        "Thorough and comprehensive eye examination using the most advanced diagnostic equipment"
+      ),
       features: [
-        "فحص قاع العين",
-        "قياس ضغط العين",
-        "فحص الرؤية الملونة",
-        "تقييم العضلات"
+        t("فحص قاع العين", "Retinal Examination"),
+        t("قياس ضغط العين", "Eye Pressure Measurement"),
+        t("فحص الرؤية الملونة", "Color Vision Test"),
+        t("تقييم العضلات", "Muscle Assessment")
       ],
-      price: "من 200 جنيه",
-      duration: "30-45 دقيقة",
+      price: t("من 200 جنيه", "From $40"),
+      duration: t("30-45 دقيقة", "30-45 mins"),
       color: "blue"
     },
     {
       icon: Zap,
-      title: "عمليات الليزك",
-      subtitle: "LASIK Surgery",
-      description: "تصحيح النظر بالليزر لعلاج قصر وطول النظر والاستجماتيزم",
+      title: t("عمليات الليزك", "LASIK Surgery"),
+      subtitle: t("تصحيح النظر بالليزر", "Laser Vision Correction"),
+      description: t(
+        "تصحيح النظر بالليزر لعلاج قصر وطول النظر والاستجماتيزم",
+        "Laser vision correction to treat nearsightedness, farsightedness, and astigmatism"
+      ),
       features: [
-        "ليزك تقليدي",
-        "فيمتو ليزك",
-        "سمايل ليزك",
-        "متابعة ما بعد العملية"
+        t("ليزك تقليدي", "Traditional LASIK"),
+        t("فيمتو ليزك", "Femto LASIK"),
+        t("سمايل ليزك", "SMILE LASIK"),
+        t("متابعة ما بعد العملية", "Post-Surgery Follow-up")
       ],
-      price: "من 5000 جنيه",
-      duration: "15-20 دقيقة",
+      price: t("من 5000 جنيه", "From $1000"),
+      duration: t("15-20 دقيقة", "15-20 mins"),
       color: "teal"
     },
     {
       icon: Droplets,
-      title: "علاج المياه البيضاء",
-      subtitle: "Cataract Treatment",
-      description: "إزالة المياه البيضاء وزراعة العدسات الداخلية بأحدث التقنيات",
+      title: t("علاج المياه البيضاء", "Cataract Treatment"),
+      subtitle: t("إزالة المياه البيضاء", "Cataract Removal"),
+      description: t(
+        "إزالة المياه البيضاء وزراعة العدسات الداخلية بأحدث التقنيات",
+        "Cataract removal and intraocular lens implantation using the latest techniques"
+      ),
       features: [
-        "عملية الفاكو",
-        "عدسات أحادية البؤرة",
-        "عدسات متعددة البؤرة",
-        "عدسات تورك"
+        t("عملية الفاكو", "Phacoemulsification"),
+        t("عدسات أحادية البؤرة", "Monofocal Lenses"),
+        t("عدسات متعددة البؤرة", "Multifocal Lenses"),
+        t("عدسات تورك", "Toric Lenses")
       ],
-      price: "من 8000 جنيه",
-      duration: "20-30 دقيقة",
+      price: t("من 8000 جنيه", "From $1600"),
+      duration: t("20-30 دقيقة", "20-30 mins"),
       color: "indigo"
     },
     {
       icon: Baby,
-      title: "طب عيون الأطفال",
-      subtitle: "Pediatric Eye Care",
-      description: "رعاية متخصصة لعيون الأطفال وعلاج مشاكل النظر في سن مبكرة",
+      title: t("طب عيون الأطفال", "Pediatric Eye Care"),
+      subtitle: t("عيون الأطفال", "Children's Eye Care"),
+      description: t(
+        "رعاية متخصصة لعيون الأطفال وعلاج مشاكل النظر في سن مبكرة",
+        "Specialized care for children's eyes and treatment of vision problems at an early age"
+      ),
       features: [
-        "فحص الأطفال حديثي الولادة",
-        "علاج الحول",
-        "كسل العين",
-        "مشاكل الجفون"
+        t("فحص الأطفال حديثي الولادة", "Newborn Eye Examination"),
+        t("علاج الحول", "Strabismus Treatment"),
+        t("كسل العين", "Lazy Eye Treatment"),
+        t("مشاكل الجفون", "Eyelid Problems")
       ],
-      price: "من 300 جنيه",
-      duration: "20-30 دقيقة",
+      price: t("من 300 جنيه", "From $60"),
+      duration: t("20-30 دقيقة", "20-30 mins"),
       color: "green"
     }
   ];
@@ -120,10 +134,10 @@ export default function ServicesSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            خدماتنا المتخصصة
+            {t("خدماتنا المتخصصة", "Our Specialized Services")}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-            Our Specialized Services
+            {t("نقدم أفضل الخدمات الطبية لعينيك", "We provide the best medical services for your eyes")}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </motion.div>
@@ -176,7 +190,7 @@ export default function ServicesSection() {
                     <div className="mb-8 flex-grow">
                       <h4 className="font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                         <Shield className="w-4 h-4" />
-                        يشمل الخدمة:
+                        {t("يشمل الخدمة:", "Service Includes:")}
                       </h4>
                       <ul className="space-y-2">
                         {service.features.map((feature, idx) => (
@@ -193,8 +207,8 @@ export default function ServicesSection() {
                       className={`w-full bg-gradient-to-r ${colors.gradient} hover:opacity-90 text-white group-hover:shadow-lg transition-all duration-300`}
                       size="lg"
                     >
-                      <span>احجز الآن</span>
-                      <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                      <span>{t("احجز الآن", "Book Now")}</span>
+                      <ArrowRight className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'} group-hover:${isRTL ? 'translate-x-1' : '-translate-x-1'} transition-transform`} />
                     </Button>
                   </div>
                 </Card>
@@ -213,17 +227,17 @@ export default function ServicesSection() {
         >
           <div className="bg-gradient-to-r from-blue-600 to-teal-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              لست متأكد من الخدمة المناسبة؟
+              {t("لست متأكد من الخدمة المناسبة؟", "Not sure which service is right for you?")}
             </h3>
             <p className="text-xl mb-6 opacity-90">
-              احجز استشارة مجانية مع أطبائنا المتخصصين
+              {t("احجز استشارة مجانية مع أطبائنا المتخصصين", "Book a free consultation with our specialized doctors")}
             </p>
             <Button 
               size="lg"
               variant="outline"
               className="bg-white text-blue-600 border-white hover:bg-blue-50 px-8"
             >
-              استشارة مجانية
+              {t("استشارة مجانية", "Free Consultation")}
             </Button>
           </div>
         </motion.div>

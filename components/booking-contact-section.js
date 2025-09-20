@@ -17,8 +17,10 @@ import {
   CheckCircle
 } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function BookingContactSection() {
+  const { t, isRTL } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -32,13 +34,13 @@ export default function BookingContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const services = [
-    "فحص العيون الشامل",
-    "عمليات الليزك",
-    "علاج المياه البيضاء",
-    "طب عيون الأطفال",
-    "علاج المياه الزرقاء",
-    "فحص الشبكية",
-    "استشارة عامة"
+    t("فحص العيون الشامل", "Comprehensive Eye Exam"),
+    t("عمليات الليزك", "LASIK Surgery"),
+    t("علاج المياه البيضاء", "Cataract Treatment"),
+    t("طب عيون الأطفال", "Pediatric Eye Care"),
+    t("علاج المياه الزرقاء", "Glaucoma Treatment"),
+    t("فحص الشبكية", "Retinal Examination"),
+    t("استشارة عامة", "General Consultation")
   ];
 
   const timeSlots = [
@@ -49,33 +51,33 @@ export default function BookingContactSection() {
   const contactInfo = [
     {
       icon: Phone,
-      title: "اتصل بنا",
-      subtitle: "Call Us",
+      title: t("اتصل بنا", "Call Us"),
+      subtitle: t("هاتف", "Phone"),
       value: "01234567890",
       link: "tel:+201234567890",
       color: "blue"
     },
     {
       icon: MessageCircle,
-      title: "واتساب",
-      subtitle: "WhatsApp",
+      title: t("واتساب", "WhatsApp"),
+      subtitle: t("مراسلة فورية", "Instant Message"),
       value: "01234567890",
       link: "https://wa.me/201234567890",
       color: "green"
     },
     {
       icon: Mail,
-      title: "البريد الإلكتروني",
-      subtitle: "Email",
+      title: t("البريد الإلكتروني", "Email"),
+      subtitle: t("مراسلة إلكترونية", "Electronic Mail"),
       value: "info@eyeclinic.com",
       link: "mailto:info@eyeclinic.com",
       color: "teal"
     },
     {
       icon: MapPin,
-      title: "العنوان",
-      subtitle: "Address",
-      value: "123 شارع النيل، القاهرة",
+      title: t("العنوان", "Address"),
+      subtitle: t("الموقع", "Location"),
+      value: t("123 شارع النيل، القاهرة", "123 Nile Street, Cairo"),
       link: "#map",
       color: "indigo"
     }
