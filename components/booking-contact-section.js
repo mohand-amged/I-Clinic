@@ -118,10 +118,10 @@ export default function BookingContactSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            احجز موعدك الآن
+            {t("احجز موعدك الآن", "Book Your Appointment Now")}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-            Book Your Appointment Now
+            {t("اختر الوقت المناسب واحجز موعدك بسهولة", "Choose the right time and book your appointment easily")}
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </motion.div>
@@ -141,10 +141,10 @@ export default function BookingContactSection() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                    احجز استشارتك
+                    {t("احجز استشارتك", "Book Your Consultation")}
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400">
-                    املأ البيانات وسنتواصل معك قريباً
+                    {t("املأ البيانات وسنتواصل معك قريباً", "Fill in the details and we will contact you soon")}
                   </p>
                 </div>
               </div>
@@ -160,10 +160,10 @@ export default function BookingContactSection() {
                     <CheckCircle className="w-10 h-10 text-green-600" />
                   </div>
                   <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                    تم إرسال طلبك بنجاح!
+                    {t("تم إرسال طلبك بنجاح!", "Your request has been sent successfully!")}
                   </h4>
                   <p className="text-slate-600 dark:text-slate-400">
-                    سنتواصل معك خلال 24 ساعة
+                    {t("سنتواصل معك خلال 24 ساعة", "We will contact you within 24 hours")}
                   </p>
                 </motion.div>
               ) : (
@@ -171,20 +171,20 @@ export default function BookingContactSection() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                        الاسم كاملاً *
+                        {t("الاسم كاملاً *", "Full Name *")}
                       </label>
                       <Input
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="أدخل اسمك الكامل"
+                        placeholder={t("أدخل اسمك الكامل", "Enter your full name")}
                         required
-                        className="text-right"
+                        className={isRTL ? "text-right" : "text-left"}
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                        رقم الهاتف *
+                        {t("رقم الهاتف *", "Phone Number *")}
                       </label>
                       <Input
                         name="phone"
@@ -199,7 +199,7 @@ export default function BookingContactSection() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      البريد الإلكتروني
+                      {t("البريد الإلكتروني", "Email")}
                     </label>
                     <Input
                       name="email"
@@ -212,16 +212,16 @@ export default function BookingContactSection() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      نوع الخدمة *
+                      {t("نوع الخدمة *", "Service Type *")}
                     </label>
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-right"
+                      className={`w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}
                     >
-                      <option value="">اختر نوع الخدمة</option>
+                      <option value="">{t("اختر نوع الخدمة", "Choose service type")}</option>
                       {services.map((service, index) => (
                         <option key={index} value={service}>
                           {service}
@@ -233,7 +233,7 @@ export default function BookingContactSection() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                        التاريخ المفضل *
+                        {t("التاريخ المفضل *", "Preferred Date *")}
                       </label>
                       <Input
                         name="date"
@@ -246,16 +246,16 @@ export default function BookingContactSection() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                        الوقت المفضل *
+                        {t("الوقت المفضل *", "Preferred Time *")}
                       </label>
                       <select
                         name="time"
                         value={formData.time}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
+                        className={`w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}
                       >
-                        <option value="">اختر الوقت</option>
+                        <option value="">{t("اختر الوقت", "Choose time")}</option>
                         {timeSlots.map((time, index) => (
                           <option key={index} value={time}>
                             {time}
@@ -267,15 +267,15 @@ export default function BookingContactSection() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      ملاحظات إضافية
+                      {t("ملاحظات إضافية", "Additional Notes")}
                     </label>
                     <Textarea
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="أي معلومات إضافية تريد مشاركتها..."
+                      placeholder={t("أي معلومات إضافية تريد مشاركتها...", "Any additional information you want to share...")}
                       rows={4}
-                      className="text-right"
+                      className={isRTL ? "text-right" : "text-left"}
                     />
                   </div>
 
@@ -285,7 +285,7 @@ export default function BookingContactSection() {
                     className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white"
                   >
                     <Send className="w-5 h-5 mr-2" />
-                    إرسال الطلب
+                    {t("إرسال الطلب", "Send Request")}
                   </Button>
                 </form>
               )}
@@ -341,10 +341,10 @@ export default function BookingContactSection() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                      تواصل فوري عبر واتساب
+                      {t("تواصل فوري عبر واتساب", "Instant Contact via WhatsApp")}
                     </h4>
                     <p className="text-sm text-slate-600 dark:text-slate-400">
-                      احجز موعدك بسرعة أو اطرح أسئلتك مباشرة
+                      {t("احجز موعدك بسرعة أو اطرح أسئلتك مباشرة", "Book your appointment quickly or ask your questions directly")}
                     </p>
                   </div>
                   <Button
@@ -352,9 +352,9 @@ export default function BookingContactSection() {
                     className="bg-green-600 hover:bg-green-700 text-white"
                     asChild
                   >
-                    <a href="https://wa.me/201234567890?text=مرحباً، أريد حجز موعد في عيادة العيون">
+                    <a href={`https://wa.me/201234567890?text=${encodeURIComponent(t("مرحباً، أريد حجز موعد في عيادة العيون", "Hello, I want to book an appointment at the eye clinic"))}`}>
                       <MessageCircle className="w-5 h-5 mr-2" />
-                      واتساب
+                      {t("واتساب", "WhatsApp")}
                     </a>
                   </Button>
                 </div>
@@ -374,20 +374,20 @@ export default function BookingContactSection() {
                     <Clock className="w-5 h-5 text-blue-600" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                    مواعيد العمل
+                    {t("مواعيد العمل", "Working Hours")}
                   </h4>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 dark:text-slate-400">السبت - الخميس</span>
-                    <span className="font-medium">9:00 ص - 6:00 م</span>
+                    <span className="text-slate-600 dark:text-slate-400">{t("السبت - الخميس", "Sat - Thu")}</span>
+                    <span className="font-medium">{t("9:00 ص - 6:00 م", "9:00 AM - 6:00 PM")}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-600 dark:text-slate-400">الجمعة</span>
-                    <span className="font-medium">2:00 م - 6:00 م</span>
+                    <span className="text-slate-600 dark:text-slate-400">{t("الجمعة", "Friday")}</span>
+                    <span className="font-medium">{t("2:00 م - 6:00 م", "2:00 PM - 6:00 PM")}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-red-500">الطوارئ</span>
+                    <span className="text-red-500">{t("الطوارئ", "Emergency")}</span>
                     <span className="font-medium">24/7</span>
                   </div>
                 </div>
@@ -405,13 +405,13 @@ export default function BookingContactSection() {
               <Card className="p-6">
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-indigo-600" />
-                  موقعنا على الخريطة
+                  {t("موقعنا على الخريطة", "Our Location on Map")}
                 </h4>
                 <div className="bg-slate-200 dark:bg-slate-700 rounded-lg h-64 flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="w-12 h-12 text-slate-400 mx-auto mb-2" />
                     <p className="text-slate-500 dark:text-slate-400 mb-2">
-                      123 شارع النيل، القاهرة
+                      {t("123 شارع النيل، القاهرة", "123 Nile Street, Cairo")}
                     </p>
                     <Button
                       variant="outline"
@@ -423,7 +423,7 @@ export default function BookingContactSection() {
                         target="_blank" 
                         rel="noopener noreferrer"
                       >
-                        عرض في خرائط جوجل
+                        {t("عرض في خرائط جوجل", "View on Google Maps")}
                       </a>
                     </Button>
                   </div>
