@@ -21,7 +21,23 @@ export default function Footer() {
   const { t } = useLanguage();
   
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Fast smooth scroll - much quicker than default 'smooth'
+    const scrollDuration = 600; // 600ms instead of default ~2000ms
+    const scrollHeight = window.scrollY;
+    const scrollStep = Math.PI / (scrollDuration / 15);
+    const cosParameter = scrollHeight / 2;
+    let scrollCount = 0;
+    let scrollMargin;
+    
+    const scrollInterval = setInterval(() => {
+      if (window.scrollY !== 0) {
+        scrollCount += 1;
+        scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+        window.scrollTo(0, scrollHeight - scrollMargin);
+      } else {
+        clearInterval(scrollInterval);
+      }
+    }, 15);
   };
 
   const quickLinks = [
@@ -290,14 +306,34 @@ export default function Footer() {
       {/* Back to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className="absolute bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+        className="absolute bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 group hover:from-blue-600 hover:to-teal-600"
+        whileHover={{ scale: 1.15, y: -2 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, type: "spring", stiffness: 200 }}
+        title={t("العودة للأعلى", "Back to Top")}
       >
-        <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-300" />
+        <motion.div
+          whileHover={{ y: -1 }}
+          whileTap={{ y: 1 }}
+        >
+          <ArrowUp className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+        </motion.div>
+        
+        {/* Pulse effect on hover */}
+        <motion.div 
+          className="absolute inset-0 bg-white/20 rounded-full opacity-0 group-hover:opacity-100"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0, 0.3, 0]
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </motion.button>
     </footer>
   );
