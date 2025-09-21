@@ -21,23 +21,19 @@ export default function Footer() {
   const { t } = useLanguage();
   
   const scrollToTop = () => {
-    // Fast smooth scroll - much quicker than default 'smooth'
-    const scrollDuration = 600; // 600ms instead of default ~2000ms
-    const scrollHeight = window.scrollY;
-    const scrollStep = Math.PI / (scrollDuration / 15);
-    const cosParameter = scrollHeight / 2;
-    let scrollCount = 0;
-    let scrollMargin;
+    // Simple reliable scroll to top - works every time
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     
-    const scrollInterval = setInterval(() => {
-      if (window.scrollY !== 0) {
-        scrollCount += 1;
-        scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
-        window.scrollTo(0, scrollHeight - scrollMargin);
-      } else {
-        clearInterval(scrollInterval);
+    // Fallback for older browsers or if smooth scroll doesn't work
+    setTimeout(() => {
+      if (window.pageYOffset > 100) {
+        window.scrollTo(0, 0);
       }
-    }, 15);
+    }, 1000);
   };
 
   const quickLinks = [
