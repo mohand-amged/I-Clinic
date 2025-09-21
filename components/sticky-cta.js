@@ -59,7 +59,7 @@ export default function StickyCTA() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-6 left-6 z-50"
+          className="fixed bottom-20 left-4 sm:bottom-6 sm:left-6 z-50"
           initial={{ opacity: 0, scale: 0.5, y: 100 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 100 }}

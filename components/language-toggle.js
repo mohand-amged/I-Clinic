@@ -10,7 +10,7 @@ export default function LanguageToggle() {
   return (
     <motion.button
       onClick={toggleLanguage}
-      className="fixed bottom-6 right-36 z-50 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-lg flex items-center justify-center border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group"
+      className="fixed bottom-6 right-4 sm:right-36 z-50 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-lg flex items-center justify-center border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 20 }}

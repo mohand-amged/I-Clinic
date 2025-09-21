@@ -94,9 +94,9 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="container mx-auto px-4 flex items-center justify-center gap-4">
-              <Phone className="w-4 h-4" />
-              <span>{t("اتصل الآن: 01234567890 | خدمة 24/7", "Call Now: 01234567890 | 24/7 Service")}</span>
+            <div className="container mx-auto px-4 flex items-center justify-center gap-2 sm:gap-4">
+              <Phone className="w-4 h-4 flex-shrink-0" />
+              <span className="truncate">{t("اتصل الآن: 01234567890 | خدمة 24/7", "Call Now: 01234567890 | 24/7 Service")}</span>
             </div>
           </motion.div>
         )}

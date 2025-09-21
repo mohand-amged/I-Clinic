@@ -85,7 +85,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="container mx-auto px-4 py-32 relative z-10">
+      <div className="container mx-auto px-4 py-20 sm:py-32 relative z-10">
         {/* Scroll Indicator */}
         <motion.div 
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -97,7 +97,7 @@ export default function HeroSection() {
           </div>
         </motion.div>
         
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Content */}
           <motion.div
             className={`text-center ${isRTL ? 'lg:text-right' : 'lg:text-left'} space-y-8`}
@@ -119,7 +119,7 @@ export default function HeroSection() {
             {/* Main Headlines */}
             <div className="space-y-6">
               <motion.h1
-                className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}

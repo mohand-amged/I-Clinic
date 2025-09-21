@@ -126,7 +126,7 @@ export default function BookingContactSection() {
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Booking Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -134,7 +134,7 @@ export default function BookingContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Card className="p-8 bg-white dark:bg-slate-900 shadow-xl">
+            <Card className="p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 shadow-xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center">
                   <Calendar className="w-6 h-6 text-white" />

@@ -20,12 +20,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export const metadata = {
   title: "عيادة العيون - أفضل رعاية لعينيك في مصر | Eye Care Clinic Egypt",
   description: "عيادة متخصصة في طب وجراحة العيون بأحدث التقنيات. فحص شامل، عمليات الليزك، علاج المياه البيضاء والزرقاء. احجز استشارتك الآن.",
   keywords: "عيادة العيون، طبيب عيون، الليزك، المياه البيضاء، فحص النظر، القاهرة، مصر",
   author: "Eye Care Clinic",
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "عيادة العيون - أفضل رعاية لعينيك في مصر",
     description: "عيادة متخصصة في طب وجراحة العيون بأحدث التقنيات",
